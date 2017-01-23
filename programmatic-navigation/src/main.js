@@ -4,15 +4,20 @@ import App from './App.vue'
 
 Vue.use(VueRouter);
 const User = {
-  template: '<div>User {{$route.params.id}}</div>'
+  template: `
+  <p>{{$route.params.id}}</p>
+  `
 };
-const routes = [{
-  path: '/user/:id',
-  component: User
-}];
+const Home = {
+  template: '<p>HomePage</p>'
+};
 const router = new VueRouter({
-  routes: routes
+  routes: [{
+    path: '/user/:id',
+    component: User
+  }]
 });
+router.push("/");
 new Vue({
   router: router,
   el: '#app',
